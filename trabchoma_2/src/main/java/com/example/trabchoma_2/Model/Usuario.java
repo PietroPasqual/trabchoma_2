@@ -1,6 +1,4 @@
 package com.example.trabchoma_2.Model;
-
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 

@@ -1,11 +1,8 @@
 package com.example.trabchoma_2.Service;
-
-
 import com.example.trabchoma_2.Model.Usuario;
 import com.example.trabchoma_2.Repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service

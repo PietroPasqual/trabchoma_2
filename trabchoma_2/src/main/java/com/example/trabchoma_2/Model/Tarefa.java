@@ -1,5 +1,4 @@
 package com.example.trabchoma_2.Model;
-
 import jakarta.persistence.*;
 
 @Entity
@@ -11,23 +10,11 @@ public class Tarefa {
 
     @Column(nullable = false)
     private String titulo;
-
     private String descricao;
     private String data_criacao;
     private String status = "A fazer";
     private String prioridade;
 
-    /*
-        Status possiveis:
-            - A fazer
-            - Em progresso
-            - Concluído
-
-        Prioridades possiveis:
-            - Baixa
-            - Media
-            - Alta
-     */
 
     //Getters
     public int getId() {

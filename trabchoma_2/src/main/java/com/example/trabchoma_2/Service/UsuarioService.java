@@ -27,11 +27,11 @@ public class UsuarioService {
 
     public String registrar(Usuario usuario) {
         if (getUser(usuario.getNome())) {
-            return "Usuário já existe:\n" + usuario.toString();
+            return "já existe esse Usuario:\n" + usuario.toString();
         }
         else{
             usuarioRepository.save(usuario);
-            return "Usuário adicionado:\n" + usuario.toString();
+            return "Usuário foi adicionado:\n" + usuario.toString();
         }
     }
 

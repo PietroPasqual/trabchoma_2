@@ -16,9 +16,18 @@ public class Tarefa {
     private String prioridade;
 
 
-    //Getters
+
     public int getId() {
         return id;
+    }
+
+    
+    public String getStatus() {
+        return status;
+    }
+
+    public String getPrioridade() {
+        return prioridade;
     }
 
     public String getTitulo() {
@@ -33,19 +42,14 @@ public class Tarefa {
         return data_criacao;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public String getPrioridade() {
-        return prioridade;
-    }
-
-    //Setters
     public void setStatus(String status) {
         this.status = status;
     }
 
+    public void setData_criacao(String data_criacao) {
+        this.data_criacao = data_criacao;
+    }
+    
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
@@ -56,10 +60,6 @@ public class Tarefa {
 
     public void setPrioridade(String prioridade) {
         this.prioridade = prioridade;
-    }
-
-    public void setData_criacao(String data_criacao) {
-        this.data_criacao = data_criacao;
     }
 
 

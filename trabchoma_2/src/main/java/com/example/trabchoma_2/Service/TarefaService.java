@@ -77,7 +77,7 @@ public class TarefaService {
                     System.out.println("Status da tarefa "+id+" alterado para: " + tarefa.getStatus());
                     tarefaRepository.save(tarefa);
                 }
-                default -> System.out.println("Status da tarefa "+id+" já está Concluido");
+                default -> System.out.println("Status da tarefa "+id+" esta pronta ");
             }
         }
     }
@@ -85,7 +85,7 @@ public class TarefaService {
     public Tarefa editarTarefa(int id, Tarefa newStuff){
         Tarefa tarefa = tarefaRepository.findById(id).orElse(null);
         if (tarefa == null){
-            throw new RuntimeException("Tarefa não encontrada");
+            throw new RuntimeException("Tarefa não existe");
         }
         else{
             if(newStuff.getTitulo() != null){

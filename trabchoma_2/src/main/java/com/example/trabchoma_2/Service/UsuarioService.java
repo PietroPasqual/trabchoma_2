@@ -14,7 +14,7 @@ public class UsuarioService {
     public List<Usuario> findAll (){
         return usuarioRepository.findAll();
     }
-
+ 
     public boolean getUser(String nome) {
         List<Usuario> usuarios = usuarioRepository.findAll();
         for (Usuario usuario : usuarios) {

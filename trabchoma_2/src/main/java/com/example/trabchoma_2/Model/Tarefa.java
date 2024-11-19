@@ -1,4 +1,4 @@
-package com.example.trabchoma_2.model;
+package com.example.trabchoma_2.Model;
 
 import jakarta.persistence.*;
 
@@ -24,7 +24,7 @@ public class Tarefa {
 
     public Tarefa(){
         this.status = Status.A_FAZER;
-        this.prioridade = com.mercado.demo.model.Prioridade.BAIXA;
+        this.prioridade = com.example.trabchoma_2.Model.Prioridade.BAIXA;
 
         this.data_criacao = LocalDate.now();
     }

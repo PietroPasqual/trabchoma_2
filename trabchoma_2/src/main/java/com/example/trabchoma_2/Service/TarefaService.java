@@ -1,5 +1,7 @@
 package com.example.trabchoma_2.Service;
 import com.example.trabchoma_2.Model.Tarefa;
+import com.example.trabchoma_2.Model.Prioridade;
+import com.example.trabchoma_2.Model.Status;
 import com.example.trabchoma_2.Repository.TarefaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

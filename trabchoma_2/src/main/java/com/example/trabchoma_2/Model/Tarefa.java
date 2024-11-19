@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
+
 @Entity
 public class Tarefa {
 
@@ -23,19 +24,14 @@ public class Tarefa {
 
     public Tarefa(){
         this.status = Status.Faca;
-        this.prioridade = com.example.trabchoma_2.Model.Prioridade.Baixa;
+        this.prioridade = Prioridade.Baixa;
 
         this.data_criacao = LocalDate.now();
     }
 
 
-    //Getters
     public int getId() {
         return id;
-    }
-
-    public String getTitulo() {
-        return titulo;
     }
 
     public String getDescricao() {
@@ -50,19 +46,19 @@ public class Tarefa {
         return prioridade;
     }
 
+    public String getTitulo() {
+        return titulo;
+    }
+
+
+
     public String getData_criacao() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         return this.data_criacao.format(formatter);
     }
 
-
-    //Setters
     public void setStatus(Status status) {
         this.status = status;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
     }
 
     public void setTitulo(String titulo) {
@@ -73,7 +69,11 @@ public class Tarefa {
         this.prioridade = prioridade;
     }
 
-    //método toString()
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+
     @Override
     public String toString(){
         return "Tarefa {" +

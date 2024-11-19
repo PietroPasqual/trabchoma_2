@@ -24,7 +24,7 @@ public class Tarefa {
 
     public Tarefa(){
         this.status = Status.A_FAZER;
-        this.prioridade = Prioridade.BAIXA;
+        this.prioridade = com.mercado.demo.model.Prioridade.BAIXA;
 
         this.data_criacao = LocalDate.now();
     }

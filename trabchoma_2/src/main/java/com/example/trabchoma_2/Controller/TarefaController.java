@@ -7,14 +7,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/tarefas")
+@RequestMapping("/tarefa")
 public class TarefaController {
 
     @Autowired
     private TarefaService tarefaService;
 
     @GetMapping
-    public List<Tarefa> listar(){
+    public List<Tarefa> listarTodos(){
         return tarefaService.findAll();
     }
 
@@ -25,25 +25,27 @@ public class TarefaController {
 
     @GetMapping("/filter/{stat}")
     public List<Tarefa> listarPorStatus(@PathVariable int stat){
-        return tarefaService.findByStatus(stat);
+        return tarefaService.listarPorStatus(stat);
     }
 
     @PostMapping
     public Tarefa add(@RequestBody Tarefa tarefa){
-        return tarefaService.save(tarefa);
+        return tarefaService.add(tarefa);
     }
 
     @DeleteMapping("/{id}")
     public String deletar(@PathVariable int id){
-        Tarefa tarefa = tarefaService.findById(id);
-        tarefaService.delete(id);
-        return "Tarefa deletada com sucesso: \n\n" + tarefa.toString();
+        return tarefaService.delete(id);
     }
 
-    @PutMapping("/{id}/move")
-    public Tarefa update(@PathVariable int id){
-        tarefaService.moverColuna(id);
-        return tarefaService.findById(id);
+    @PutMapping("/status/{id}")
+    public Tarefa moverStatus(@PathVariable int id){
+        return tarefaService.moverStatus(id);
+    }
+
+    @PutMapping("/prioridade/{id}")
+    public Tarefa moverPrioridade(@PathVariable int id){
+        return tarefaService.moverPrioridade(id);
     }
 
     @PutMapping("/{id}")

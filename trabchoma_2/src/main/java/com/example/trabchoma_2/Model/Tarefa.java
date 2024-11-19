@@ -1,5 +1,10 @@
-package com.example.trabchoma_2.Model;
+package com.example.trabchoma_2.model;
+
 import jakarta.persistence.*;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 @Entity
 public class Tarefa {
@@ -10,10 +15,19 @@ public class Tarefa {
 
     @Column(nullable = false)
     private String titulo;
+
     private String descricao;
-    private String data_criacao;
-    private String status = "A fazer";
-    private String prioridade;
+    private Status status;
+    private Prioridade prioridade;
+
+    private LocalDate data_criacao;
+
+    public Tarefa(){
+        this.status = Status.A_FAZER;
+        this.prioridade = Prioridade.BAIXA;
+
+        this.data_criacao = LocalDate.now();
+    }
 
 
     //Getters
@@ -29,20 +43,22 @@ public class Tarefa {
         return descricao;
     }
 
-    public String getData_criacao() {
-        return data_criacao;
-    }
-
-    public String getStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public String getPrioridade() {
+    public Prioridade getPrioridade() {
         return prioridade;
     }
 
+    public String getData_criacao() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        return this.data_criacao.format(formatter);
+    }
+
+
     //Setters
-    public void setStatus(String status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
 
@@ -54,25 +70,20 @@ public class Tarefa {
         this.titulo = titulo;
     }
 
-    public void setPrioridade(String prioridade) {
+    public void setPrioridade(Prioridade prioridade) {
         this.prioridade = prioridade;
     }
 
-    public void setData_criacao(String data_criacao) {
-        this.data_criacao = data_criacao;
-    }
-
-
+    //método toString()
     @Override
     public String toString(){
         return "Tarefa {" +
                 "\n\tid = " + id +
                 "\n\tTitulo = " + titulo +
                 "\n\tDescricao = " + descricao +
-                "\n\tData de criacao = " + data_criacao +
+                "\n\tData de criacao = " + getData_criacao() +
                 "\n\tStatus = " + status +
                 "\n\tPrioridade = " + prioridade +
                 "\n}";
     }
-
 }

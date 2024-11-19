@@ -13,6 +13,11 @@ public class TarefaController {
     @Autowired
     private TarefaService tarefaService;
 
+    @GetMapping("/filter/{stat}")
+    public List<Tarefa> listarPorStatus(@PathVariable int stat){
+        return tarefaService.listarPorStatus(stat);
+    }
+
     @GetMapping
     public List<Tarefa> listarTodos(){
         return tarefaService.findAll();
@@ -23,10 +28,6 @@ public class TarefaController {
         return tarefaService.findById(id);
     }
 
-    @GetMapping("/filter/{stat}")
-    public List<Tarefa> listarPorStatus(@PathVariable int stat){
-        return tarefaService.listarPorStatus(stat);
-    }
 
     @PostMapping
     public Tarefa add(@RequestBody Tarefa tarefa){
@@ -52,5 +53,7 @@ public class TarefaController {
     public Tarefa edit(@PathVariable int id, @RequestBody Tarefa tarefa){
         return tarefaService.editarTarefa(id, tarefa);
     }
+
+
 
 }

@@ -31,9 +31,9 @@ public class TarefaService {
         List<Tarefa> TarefaPorStatus = new ArrayList<>();
 
         Status stat = switch (n_stat) {
-            case 1 -> Status.A_FAZER;
-            case 2 -> Status.EM_PROGRESSO;
-            case 3 -> Status.CONCLUIDO;
+            case 1 -> Status.Faca;
+            case 2 -> Status.Sendo_Feito;
+            case 3 -> Status.Pronto;
             default -> null;
         };
 
@@ -61,22 +61,22 @@ public class TarefaService {
         Tarefa tarefa = tarefaRepository.findById(id).orElse(null);
         if(tarefa != null) {
             tarefaRepository.delete(tarefa);
-            return "Tarefa deletada:\n\n"+ tarefa;
+            return "Tarefa foi Excluida:\n\n"+ tarefa;
         }
-        return "Tarefa não encontrada";
+        return "Tarefa não Existe";
     }
 
 
     public Tarefa moverStatus(int id){
         Tarefa tarefa = tarefaRepository.findById(id).orElse(null);
         if (tarefa == null){
-            throw new RuntimeException("Tarefa não encontrada");
+            throw new RuntimeException("Tarefa não Existe");
         }
         else{
             switch (tarefa.getStatus()) {
-                case A_FAZER -> tarefa.setStatus(Status.EM_PROGRESSO);
-                case EM_PROGRESSO -> tarefa.setStatus(Status.CONCLUIDO);
-                default -> tarefa.setStatus(Status.A_FAZER);
+                case Faca -> tarefa.setStatus(Status.Sendo_Feito);
+                case Sendo_Feito -> tarefa.setStatus(Status.Pronto);
+                default -> tarefa.setStatus(Status.Faca);
             }
             return tarefaRepository.save(tarefa);
         }
@@ -86,13 +86,13 @@ public class TarefaService {
     public Tarefa moverPrioridade(int id){
         Tarefa tarefa = tarefaRepository.findById(id).orElse(null);
         if (tarefa == null){
-            throw new RuntimeException("Tarefa não encontrada");
+            throw new RuntimeException("Tarefa não Existe");
         }
         else{
             switch (tarefa.getPrioridade()) {
-                case BAIXA -> tarefa.setPrioridade(Prioridade.MEDIA);
-                case MEDIA -> tarefa.setPrioridade(Prioridade.ALTA);
-                default -> tarefa.setPrioridade(Prioridade.BAIXA);
+                case Baixa -> tarefa.setPrioridade(Prioridade.Media);
+                case Media -> tarefa.setPrioridade(Prioridade.Alta);
+                default -> tarefa.setPrioridade(Prioridade.Baixa);
             }
             return tarefaRepository.save(tarefa);
         }
@@ -102,7 +102,7 @@ public class TarefaService {
     public Tarefa editarTarefa(int id, Tarefa newStuff){
         Tarefa tarefa = tarefaRepository.findById(id).orElse(null);
         if (tarefa == null){
-            throw new RuntimeException("Tarefa não encontrada");
+            throw new RuntimeException("Tarefa nao Existe");
         }
         else{
             if(newStuff.getTitulo() != null){

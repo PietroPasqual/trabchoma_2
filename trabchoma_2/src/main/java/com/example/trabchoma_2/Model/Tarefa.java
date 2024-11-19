@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 @Entity
 public class Tarefa {
@@ -23,8 +22,8 @@ public class Tarefa {
     private LocalDate data_criacao;
 
     public Tarefa(){
-        this.status = Status.A_FAZER;
-        this.prioridade = com.example.trabchoma_2.Model.Prioridade.BAIXA;
+        this.status = Status.Faca;
+        this.prioridade = com.example.trabchoma_2.Model.Prioridade.Baixa;
 
         this.data_criacao = LocalDate.now();
     }

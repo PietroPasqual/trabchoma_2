@@ -1,4 +1,4 @@
-package com.mercado.demo.model;
+package com.example.trabchoma_2.Model;
 
 public enum Status {
     A_FAZER,
